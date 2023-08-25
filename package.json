@@ -1,0 +1,15 @@
+{
+  "name": "minegit",
+  "version": "1.0.0",
+  "description": "simple express server serves as intermediary between github and minecraft mod CC:Tweaked",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
