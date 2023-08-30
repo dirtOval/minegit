@@ -9,19 +9,25 @@ const rootDir = process.env.ROOTDIR;
 
 //middleware zone
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 // app.use(bodyParser.raw());
 
 //routes
 app.get('/', (req, res) => {
   res.send(`Root dir is: ${rootDir}`);
-})
+});
 
-app.get('/echotest', (req, res) => {
-  let echo = req.query.echo;
-  console.log(`CC says: ${echo}`);
-  res.send(`it did the thing`);
-})
+app.post('/sync', ( req, res) => {
+  let dir = JSON.parse(Object.keys(req.body));
+  console.log(dir);
+  res.send('yay');
+});
+
+// app.get('/echotest', (req, res) => {
+//   let echo = req.query.echo;
+//   console.log(`CC says: ${echo}`);
+//   res.send(`it did the thing`);
+// })
 
 app.get('/pathtest', (req, res) => {
   // console.log(req);
