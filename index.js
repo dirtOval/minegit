@@ -10,7 +10,7 @@ const rootDir = process.env.ROOTDIR;
 //middleware zone
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// app.use(bodyParser.raw());
+app.use(bodyParser.raw());
 
 //routes
 app.get('/', (req, res) => {
@@ -37,6 +37,14 @@ app.get('/pathtest', (req, res) => {
     console.log(`adding banana to path "${ccPath}"`)
     res.send("banana added :)");
   })
+})
+
+app.post('/jsontest', (req, res) => {
+  console.log(req.body);
+  console.log(`Keys: ${Object.keys(req.body)}`);
+  console.log(`Values: ${Object.values(req.body)}`);
+  // console.log(JSON.parse(req.body));
+  res.send('grats bro u did it');
 })
 
 app.listen(port, () => {
